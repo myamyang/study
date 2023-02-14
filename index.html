@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 이서윤체 폰트 적용을 위한 코드 */
+        @font-face {
+            font-family: "LeeSeoyun";
+            src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff") format("woff");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* body태그 자체에 css 요소 부여 */
+        body {
+            font-family: "LeeSeoyun";
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-image: url(./B/background4.png);
+        }
+
+        .container {
+            width: 390px;
+            background-color: rgb(148, 209, 204);
+            height: 100%;
+        }
+
+        .photos {
+            margin-top: 30px;
+        }
+
+        .photo-frame {
+            background-color: antiquewhite;
+            margin: 15px 20px;
+            height: 200px;
+            background-size: cover;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .footers {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .f-title {
+            color: rgb(243, 252, 255);
+            font-size: 25px;
+            font-weight: 900;
+
+        }
+
+        .f-date {
+            color: rgb(0, 12, 0);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        #image1 {
+            background-image: url(./P/000029.JPG);
+        }
+
+        #image2 {
+            background-image: url(./P/000025.JPG);
+        }
+
+        #image3 {
+            background-image: url(./P/000021.JPG);
+        }
+
+        #image4 {
+            background-image: url(./P/000001.JPG);
+        }
+
+        .photo-discription {
+            color: aliceblue;
+            background-color: rgb(148, 209, 204);
+
+            width: fit-content;
+            padding: 0 20px;
+            margin-bottom: 2px;
+
+            border-radius: 5px;
+
+            position: absolute;
+            bottom: 0;
+
+            transform: translate(-50%);
+            left: 50%;
+            opacity: 0;
+
+        }
+
+        .video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .showtext {
+            opacity: 0;
+        }
+
+        .hideText {
+            opacity: 1;
+            transition: opacity 0.5s linear;
+        }
+    </style>
+    <script>
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#disc1").classList.remove("hideText");
+                document.querySelector("#disc1").classList.add("showText");
+            } else if (number === 2) {
+                document.querySelector("#disc2").classList.remove("hideText");
+                document.querySelector("#disc2").classList.add("showText");
+            } else if (number === 3) {
+                document.querySelector("#disc3").classList.remove("hideText");
+                document.querySelector("#disc3").classList.add("showText");
+            } else if (number === 4){
+                document.querySelector("#disc4").classList.remove("hideText");
+                document.querySelector("#disc4").classList.add("showText");
+            }
+        }
+
+        function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#disc1").classList.remove("showtext");
+                document.querySelector("#disc1").classList.add("hideText");
+            } else if (number === 2) {
+                document.querySelector("#disc2").classList.remove("showtext");
+                document.querySelector("#disc2").classList.add("hideText");
+            } else if (number === 3) {
+                document.querySelector("#disc3").classList.remove("showtext");
+                document.querySelector("#disc3").classList.add("hideText");
+            } else if (number === 4){
+                document.querySelector("#disc4").classList.remove("showtext");
+                document.querySelector("#disc4").classList.add("hideText");
+            }
+        }
+
+        // 클릭 기능
+        // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+        function alertText(number) {
+            alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="photos">
+            <div id="image1" class="photo-frame" 
+                onmouseover="hideText(1)" 
+                onmouseout="showText(1)"
+                onclick="alertText(1)">
+                <span id="disc1" class="photo-discription">
+                    Blossom
+                </span>
+            </div>
+            <div id="image2" class="photo-frame" 
+                onmouseover="hideText(2)"
+                onmouseout="showText(2)"
+                onclick="alertText(2)">
+                <span id="disc2" class="photo-discription">
+                    Brighten
+                </span>
+            </div>
+            <div id="image3" class="photo-frame" 
+                onmouseover="hideText(3)" 
+                onmouseout="showText(3)"
+                onclick="alertText(3)">
+                <span id="disc3" class="photo-discription">
+                    And me
+                </span>
+            </div>
+            <div id="image4" class="photo-frame" 
+                onmouseover="hideText(4)" 
+                onmouseout="showText(4)"
+                onclick="alertText(4)">
+                <span id="disc4" class="photo-discription">
+                    romance
+                </span>
+
+            </div>
+        </div>
+        <div class="footers">
+            <p class="f-title">Four cuts of life.</p>
+            <p class="f-date">23.01.31</p>
+        </div>
+    </div>
+</body>
+
+</html>
